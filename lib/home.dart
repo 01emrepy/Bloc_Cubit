@@ -50,14 +50,11 @@ class _HomeState extends State<Home> {
             return ListView.builder(
                 itemCount: state.model.length,
                 itemBuilder: ((context, index) {
-                  return ListView.builder(
-                    itemBuilder: (context, index) => SizedBox(
-                        height: 200,
-                        child: Image.network(
-                          state.model[index].image.toString(),
-                          fit: BoxFit.cover,
-                        )),
-                    itemCount: state.model.length,
+                  return ListTile(
+                    leading: Image.network(state.model[index].image!),
+                    title: Text(state.model[index].title!),
+                    subtitle: Text(state.model[index].description!),
+                    trailing: Text(state.model[index].category!),
                   );
                 }));
           } else {
